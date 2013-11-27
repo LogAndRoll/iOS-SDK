@@ -7,7 +7,7 @@ Use the official Log&Roll SDK for iOS to push logs from your iOS app to the Log&
 
 ##Installation from source
 
-**Note: ** This will set you up with the latest experimental version of Log&Roll. If you want to use a stable version, please download the SDK from your app's installation page.
+***Note:*** This will set you up with the latest experimental version of Log&Roll. If you want to use a stable version, please download the SDK from your app's installation page.
 
 - Sign up on [Log&Roll](http://logroll.in) if you haven't done already
 - Select or Register your application
@@ -17,7 +17,7 @@ Use the official Log&Roll SDK for iOS to push logs from your iOS app to the Log&
 	
 - Go to installation, choose 'iOS' as platform and grab the example code for your application and follow the instructions from there.
 
-  **Instead of downloading the SDK from the installation page, ** make sure you clone this repository and add the `LogAndRoll-SDK` folder in the `LogAndRoll-SDK/LogAndRoll-SDK/Libraries/` folder
+  ***Instead of downloading the SDK from the installation page,*** make sure you clone this repository and add the `LogAndRoll-SDK` folder in the `LogAndRoll-SDK/LogAndRoll-SDK/Libraries/` folder
 
 
 ##Contribute
