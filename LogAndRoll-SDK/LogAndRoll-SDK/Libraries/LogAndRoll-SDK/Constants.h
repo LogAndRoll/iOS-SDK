@@ -10,6 +10,6 @@
 #define LogAndRoll_SDK_constants_h
 
 #define kTagAppState @"Application State"
-#define LR_VERSION @"0.1"
+#define LR_VERSION @"0.5.0"
 
 #endif

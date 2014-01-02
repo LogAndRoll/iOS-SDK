@@ -168,8 +168,12 @@ static BOOL postingBlobs;
     [LRLogger save];
     NSString *firstLog = [self firstFileAtPath:logsPath];
     if (firstLog) {
-        NSDictionary *blob = [NSDictionary dictionaryWithContentsOfFile:firstLog];
+        NSMutableDictionary *blob = [NSMutableDictionary dictionaryWithContentsOfFile:firstLog];
         if (blob) {
+            NSDictionary *deviceObject = @{
+               @"name": [[UIDevice currentDevice] name]
+            };
+            [blob setObject:deviceObject forKey:@"deviceDetails"];
             NSString *path = [NSString stringWithFormat:@"%@/api/%@/%@/blob/%@", serverUrl, appName, APIKey, kDeviceID];
             
             [self postDictionary:blob toURL:[NSURL URLWithString:path] callback:^(NSString *responseStr, NSError *error) {
@@ -265,14 +269,14 @@ static BOOL postingBlobs;
 + (void) save
 {
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_LOW, 0), ^{
-        if (recentLogs && recentLogs.count > 0) {
-            NSArray *copy = [recentLogs copy];
+        NSArray *copy = [[NSArray alloc] initWithArray:recentLogs copyItems:NO];
+        if (copy && copy.count > 0) {
             NSString *path = [logsPath stringByAppendingPathComponent:[LRLogger generateBlobName]];
-            NSDictionary *dictWithLogs = @{kLogs: copy};
+            NSDictionary *dictWithLogs = @{ kLogs: copy };
             [dictWithLogs writeToFile:path atomically:YES];
-            NSRange r;
-            r.location = 0;
-            r.length = [copy count];
+            NSUInteger len = [recentLogs count];
+            NSUInteger copyLen = [copy count];
+            NSRange r = NSMakeRange(0, MIN(copyLen, len));
             
             NSLog(@"Saved in %@", path);
             

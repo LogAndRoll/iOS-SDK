@@ -15,7 +15,7 @@
 {
     self.window = [[UIWindow alloc] initWithFrame:[[UIScreen mainScreen] bounds]];
     // Override point for customization after application launch.
-    [LRMain launchWithApplicationName:@"kut" andAPIKey:@"pV7mUirqYrzDxBRLZXBj7Vezafom4S"];
+    [LRMain launchWithApplicationName:@"test" andAPIKey:@"GGyFeOJEeTjEuyajwR1y3rP3y9tEX7kEJK5QEb7IGnO"];
     
     LogNRoll(@"Current User", @"peterwilli");
     
